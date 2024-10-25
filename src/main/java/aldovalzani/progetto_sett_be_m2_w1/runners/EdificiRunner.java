@@ -28,7 +28,7 @@ public class EdificiRunner implements CommandLineRunner {
 
         try {
             Edificio edificioFound = edificioService.findEdificioById(102);
-            log.info(edificioFound.toString());
+            log.info("Questo è l'Edificio che cercavi: " + edificioFound.toString());
         } catch (NotFoundException ex) {
             log.error(ex.getMessage());
         }
