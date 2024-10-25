@@ -22,7 +22,7 @@ public class PostazioneService {
         return postazioneRepo.findById(postazioneId).orElseThrow(() -> new NotFoundException(postazioneId));
     }
 
-    public List<Postazione> findAllEdifici() {
+    public List<Postazione> findAllPostazioni() {
         return postazioneRepo.findAll();
     }
 
