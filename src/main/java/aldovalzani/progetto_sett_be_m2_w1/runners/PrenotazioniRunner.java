@@ -40,7 +40,9 @@ public class PrenotazioniRunner implements CommandLineRunner {
 
         //Ora posso creare tutte le Prenotazioni
         Prenotazione prenotazione1 = new Prenotazione(utFound1, LocalDate.now().plusDays(2), List.of(postFound1));
-        log.info(prenotazione1.toString());
+        Prenotazione prenotazione2 = new Prenotazione(utFound1, LocalDate.now().plusDays(2), List.of(postFound2));
+
+        prenotazioneService.savePrenotazione(prenotazione1);
 
 
     }

@@ -27,7 +27,7 @@ public class Postazione {
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
     @ManyToMany(mappedBy = "postazioni")
-    private List<Prenotazione> prenotazionei;
+    private List<Prenotazione> prenotazioni;
 
     public Postazione(String descrizione, Edificio edificio, int num_max_persone, TipoPostazione tipo_postazione) {
         this.descrizione = descrizione;
