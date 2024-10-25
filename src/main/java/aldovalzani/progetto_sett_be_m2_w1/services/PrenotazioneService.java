@@ -41,7 +41,7 @@ public class PrenotazioneService {
 
         //CONTROLLO CHE LA POSTAZIONE SIA DISPONIBILE O SIA GIA PRENOTATA DA UN ALTRO UTENTE
 
-        List<Prenotazione> prenotazionePostazione = prenotazioniRepo.findByPoStazioneIdEData(postazioneId, data_prenotazione);
+        List<Prenotazione> prenotazionePostazione = prenotazioniRepo.findByPostazioneIdEData(postazioneId, data_prenotazione);
         if (!prenotazionePostazione.isEmpty()) {
             throw new NotAvailableException("La postazione è già prenotata per la data selezionata");
         }
