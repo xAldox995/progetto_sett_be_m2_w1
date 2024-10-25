@@ -32,10 +32,10 @@ public class Prenotazione {
     )
     private List<Postazione> postazioni;
 
-    public Prenotazione(Utente utente, LocalDate data_prenotazione) {
+    public Prenotazione(Utente utente, LocalDate data_prenotazione, List<Postazione> postazioni) {
         this.utente = utente;
-        this.postazioni = new ArrayList<>();
         this.data_prenotazione = data_prenotazione;
+        this.postazioni = postazioni != null ? new ArrayList<>(postazioni) : new ArrayList<>();
     }
 
     @Override
@@ -44,6 +44,7 @@ public class Prenotazione {
                 "data_prenotazione=" + data_prenotazione +
                 ", id=" + id +
                 ", utente=" + utente +
+                ", postazioni=" + postazioni +
                 '}';
     }
 }
