@@ -13,7 +13,7 @@ public interface PrenotazioniRepo extends JpaRepository<Prenotazione, Long> {
     @Query("SELECT p FROM Prenotazione p WHERE p.data_prenotazione = :data AND p.utente.id = :utenteId")
     List<Prenotazione> findByDataEUtenteId(LocalDate data, long utenteId);
 
-    @Query("SELECT p FROM Postazione p JOIN p.postazioni pos WHERE pos.id =:postazioneId AND p.data = :data")
+    @Query("SELECT p FROM Prenotazione p JOIN p.postazioni pos WHERE pos.id =:postazioneId AND p.data = :data")
     List<Prenotazione> findByPoStazioneIdEData(long postazioneId, LocalDate data);
 
     @Query("SELECT p FROM Prenotazione p WHERE p.utente.id = :utenteId and p.data = :data AND :postazioneId IN (SELECT pos.id FROM p.postazioni pos)")
