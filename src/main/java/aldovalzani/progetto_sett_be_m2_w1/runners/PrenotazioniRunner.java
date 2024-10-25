@@ -3,6 +3,7 @@ package aldovalzani.progetto_sett_be_m2_w1.runners;
 import aldovalzani.progetto_sett_be_m2_w1.entities.Postazione;
 import aldovalzani.progetto_sett_be_m2_w1.entities.Prenotazione;
 import aldovalzani.progetto_sett_be_m2_w1.entities.Utente;
+import aldovalzani.progetto_sett_be_m2_w1.exceptions.NotAvailableException;
 import aldovalzani.progetto_sett_be_m2_w1.services.PostazioneService;
 import aldovalzani.progetto_sett_be_m2_w1.services.PrenotazioneService;
 import aldovalzani.progetto_sett_be_m2_w1.services.UtenteService;
@@ -42,7 +43,12 @@ public class PrenotazioniRunner implements CommandLineRunner {
         Prenotazione prenotazione1 = new Prenotazione(utFound1, LocalDate.now().plusDays(2), List.of(postFound1));
         Prenotazione prenotazione2 = new Prenotazione(utFound1, LocalDate.now().plusDays(2), List.of(postFound2));
 
-        prenotazioneService.savePrenotazione(prenotazione1);
+
+        try {
+            prenotazioneService.savePrenotazione(prenotazione2);
+        } catch (NotAvailableException ex) {
+            log.error(ex.getMessage());
+        }
 
 
     }

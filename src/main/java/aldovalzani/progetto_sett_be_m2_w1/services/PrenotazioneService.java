@@ -4,6 +4,7 @@ import aldovalzani.progetto_sett_be_m2_w1.entities.Prenotazione;
 import aldovalzani.progetto_sett_be_m2_w1.exceptions.NotAvailableException;
 import aldovalzani.progetto_sett_be_m2_w1.exceptions.NotFoundException;
 import aldovalzani.progetto_sett_be_m2_w1.repositories.PrenotazioniRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Slf4j
 public class PrenotazioneService {
     @Autowired
     private PrenotazioniRepo prenotazioniRepo;
@@ -45,7 +47,7 @@ public class PrenotazioneService {
         if (!prenotazionePostazione.isEmpty()) {
             throw new NotAvailableException("La postazione è già prenotata per la data selezionata");
         }
-
+        log.info("Prenotazione con id: " + prenotazione.getId() + " salvata con successo");
         return prenotazioniRepo.save(prenotazione);
     }
 }
