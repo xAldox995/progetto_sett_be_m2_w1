@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface PostazioneRepo extends JpaRepository<Postazione, Long> {
     @Query("SELECT p FROM Postazione p WHERE p.tipo_postazione = :tipo AND p.edificio.citta = :citta")
-    List<Postazione> findByTipoECittà(TipoPostazione tipo, String citta);
+    List<Postazione> findByTipoECitta(TipoPostazione tipo, String citta);
 
 
 }
