@@ -40,7 +40,7 @@ public class PostazioneRunner implements CommandLineRunner {
         postazioneService.findAllPostazioni().forEach(postazione -> log.info(postazione.toString()));
 
         try {
-            Postazione postazioneFound = postazioneService.findPostazioneById(100);
+            Postazione postazioneFound = postazioneService.findPostazioneById(1);
             log.info("Questo è la postazione che cercavi: " + postazioneFound.toString());
         } catch (NotFoundException ex) {
             log.error(ex.getMessage());
